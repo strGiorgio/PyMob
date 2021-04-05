@@ -44,16 +44,23 @@ class presentation:
         print_wcolor(35, "=" * 30)
         while True:
             try:
-                
-                print_wcolor(36, "[ 1 ] INICIAR BATALHA")
+                print_wcolor(36, "[ 1 ] INICIAR BATALHA \n[ 2 ] VOLTAR")
                 answers = int(input('>>> '))
             except(ValueError):
                 os.system('cls')
                 print_wcolor(31, 'Option not available! Try again.')
                 continue
-            if answers != 1:
+            if answers < 1:
                 os.system('cls')
                 print_wcolor(31, 'Option not available! Try again.')
+            elif answers > 2:
+                os.system('cls')
+                print_wcolor(31, 'Option not available! Try again.')
+            
+            elif answers == 2:
+                os.system('cls')
+                break
+
             elif answers == 1:
                 mob_hp = self.mob_hp
                 mob_at = self.mob_strength * self.mob_stamina
@@ -104,4 +111,11 @@ class presentation:
                         os.system('cls')
                         print(f'Você regenerou {mob_reg} de Hp. Seu Hp: {int(mob_hp)}')
                         print(f'Seu inimigo regenerou {en_reg} de Hp. Hp inimigo: {int(en_hp)}')
+                    
+                    if en_hp <= 0:
+                        print(f'Você ganhou! Seu Hp: {int(mob_hp)}')
+                        break
+                    elif mob_hp <= 0:
+                        print(f'Você perdeu! Hp inimigo: {int(en_hp)}')
+                        break
            

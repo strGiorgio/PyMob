@@ -5,8 +5,9 @@ from time import sleep
 
 # funções
 def help():
-    print_wcolor(35, '=' * 100)
-    print_wcolor(33, '''GERAÇÃO - Um mob será gerado com suas habilidade(defesa,força e estamina) aleatórias.\n\nBATALHA - A batalha consiste em 1 inimigo com defesa, força e estamina aleatórias, se a força for mais forte que a defesa dará um dano que resutará na perda de pontos de vidas(hp). A estamina servirá para a regeneração e a quantidade de ataque(hits)''')
+    rules = '''GERAÇÃO - Um mob será gerado com suas habilidade(defesa,força e estamina) aleatórias.\n\nBATALHA - A batalha consiste em 1 inimigo com defesa, força e estamina aleatórias, a força do hit se resume na força vezes a estamina, a regeneração é a defesa dividido por 5 vezes a estamina\n\nCANSAÇO - Todo rodada tem a chance de 1 a 10 de cansaço, ou seja, seu mob poderá ter um cansaço e dar menos dano mesmo a sua força sendo maior que do inimigo em questão.'''
+
+    print_wcolor(33, rules)
     print_wcolor(35, '=' * 100)
 
 # INICIO DO GAME
@@ -33,7 +34,7 @@ while True:
         
     if escolha == 1:
         while True:
-            print_wcolor(36, '[ 1 ] GERAR MOB ALEATÓRIO\n[ 2 ] MOB PRÉ-DEFINIDO')
+            print_wcolor(36, '[ 1 ] GERAR MOB ALEATÓRIO\n[ 2 ] MOB PRÉ-DEFINIDO \n[ 3 ] VOLTAR')
 
             try:
                 escolha_2 = int(input('>>> '))
@@ -45,7 +46,7 @@ while True:
 
             if escolha_2 <=  0:
                 print_wcolor(31, "Opção não disponivel! Tente novamente.")
-            elif escolha_2 >= 3:
+            elif escolha_2 > 3:
                 print_wcolor(31, "Opção não disponivel! Tente novamente.")
 
 
@@ -75,6 +76,9 @@ while True:
             elif escolha_2 == 2:
                 print_wcolor(31, "Opção não disponivel! Tente novamente.")
                 continue
+
+            elif escolha_2 == 3:
+                break
 
     elif escolha == 2:
         os.system('cls')
