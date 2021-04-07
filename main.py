@@ -12,48 +12,36 @@ def help():
 
 # INICIO DO GAME
 os.system('cls')
-print_wcolor(35, 'BEM VINDO AO JOGO!')
+print_wcolor(35, 'WELCOME TO THE GAME!')
 
 # MENU
 while True:
-    print_wcolor(36, '[ 1 ] NOVO JOGO\n[ 2 ] COMO JOGAR')
+    print_wcolor(36, '[ 1 ] NEW GAME\n[ 2 ] HOW TO PLAY?')
 
     try:
         escolha = int(input('>>> '))
         os.system('cls')
     except(ValueError):
         os.system('cls')
-        print_wcolor(31, "Opção não disponivel! Tente novamente.")
+        print_wcolor(31, 'Option not available! Try again.')
         continue
 
-    if escolha <= 0:
-        print_wcolor(31, "Opção não disponivel! Tente novamente.")
-    elif escolha >= 3:
-        print_wcolor(31, "Opção não disponivel! Tente novamente.")
-
-        
     if escolha == 1:
         while True:
-            print_wcolor(36, '[ 1 ] GERAR MOB ALEATÓRIO\n[ 2 ] MOB PRÉ-DEFINIDO \n[ 3 ] VOLTAR')
+            print_wcolor(36, '[ 1 ] GENERATE YOUR MOB\n[ 2 ] PRE-DEFINED MOB \n[ 3 ] RETURN')
 
             try:
                 escolha_2 = int(input('>>> '))
                 os.system('cls')
             except(ValueError):
                 os.system('cls')
-                print_wcolor(31, "Opção não disponivel! Tente novamente.")
+                print_wcolor(31, 'Option not available! Try again.')
                 continue
-
-            if escolha_2 <=  0:
-                print_wcolor(31, "Opção não disponivel! Tente novamente.")
-            elif escolha_2 > 3:
-                print_wcolor(31, "Opção não disponivel! Tente novamente.")
-
 
             if escolha_2 == 1:
                 while True:
                     nameL = list()
-                    print_wcolor(36, 'Escolha o nome do seu mob:')
+                    print_wcolor(36, 'Choice your mob`s name:')
                     name = (input('>>> '))
                     os.system('cls')
                 
@@ -61,10 +49,10 @@ while True:
                         nameL.append(l)
 
                     if name.isnumeric():
-                        print_wcolor(31, 'Nome com números? Por favor tente novamente')
+                        print_wcolor(31, 'Name with numbers? Please, try again')
                         continue
                     elif len(nameL) < 2:
-                        print_wcolor(31, 'Nome muito curto!')
+                        print_wcolor(31, 'Very short name! Please, try again')
                         continue
                     
                     mob = game.generate()
@@ -74,14 +62,22 @@ while True:
                     break 
 
             elif escolha_2 == 2:
-                print_wcolor(31, "Opção não disponivel! Tente novamente.")
+                os.system('cls')
+                print_wcolor(31, 'Option not available! Try again.')
                 continue
 
             elif escolha_2 == 3:
                 break
 
+            else:
+                os.system('cls')
+                print_wcolor(31, 'Option not available! Try again.')
+
     elif escolha == 2:
         os.system('cls')
         help()
 
+    else:
+        os.system('cls')
+        print_wcolor(31, 'Option not available! Try again.')
 

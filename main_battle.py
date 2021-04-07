@@ -44,20 +44,14 @@ class presentation:
         print_wcolor(35, "=" * 30)
         while True:
             try:
-                print_wcolor(36, "[ 1 ] INICIAR BATALHA \n[ 2 ] VOLTAR")
+                print_wcolor(36, "[ 1 ] START BATTLE \n[ 2 ] RETURN")
                 answers = int(input('>>> '))
             except(ValueError):
                 os.system('cls')
                 print_wcolor(31, 'Option not available! Try again.')
                 continue
-            if answers < 1:
-                os.system('cls')
-                print_wcolor(31, 'Option not available! Try again.')
-            elif answers > 2:
-                os.system('cls')
-                print_wcolor(31, 'Option not available! Try again.')
-            
-            elif answers == 2:
+
+            if answers == 2:
                 os.system('cls')
                 break
 
@@ -80,17 +74,9 @@ class presentation:
                         os.system('cls')
                         print_wcolor(31, 'Option not available! Try again.')
                         continue
-                    if action < 1:
-                        os.system('cls')
-                        print_wcolor(31, 'Option not available! Try again.')
-                        continue
-                    elif action > 2:
-                        os.system('cls')
-                        print_wcolor(31, 'Option not available! Try again.')
-                        continue
 
                     # -----BATTLE----
-                    elif action == 1:
+                    if action == 1:
                         tiredness_1 = randint(1 ,10)
                         tiredness_2 = randint(1 ,10)
                         mob_at = tiredness_1
@@ -111,11 +97,18 @@ class presentation:
                         os.system('cls')
                         print(f'Você regenerou {mob_reg} de Hp. Seu Hp: {int(mob_hp)}')
                         print(f'Seu inimigo regenerou {en_reg} de Hp. Hp inimigo: {int(en_hp)}')
-                    
+
+                    else:
+                        os.system('cls')
+                        print_wcolor(31, 'Option not available! Try again.')
+
                     if en_hp <= 0:
                         print(f'Você ganhou! Seu Hp: {int(mob_hp)}')
                         break
                     elif mob_hp <= 0:
                         print(f'Você perdeu! Hp inimigo: {int(en_hp)}')
                         break
-           
+                    
+            else:
+                os.system('cls')
+                print_wcolor(31, 'Option not available! Try again.')
