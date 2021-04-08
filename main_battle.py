@@ -83,9 +83,11 @@ class presentation:
                         en_at = tiredness_2
                         os.system('cls')
                         en_hp = en_hp - mob_at
-                        print(f'Deu {mob_at} de dano. Hp inimigo: {int(en_hp)}')
                         mob_hp = mob_hp - en_at
-                        print(f'Levou {en_at} de dano. Seu Hp: {int(mob_hp)}')
+                        print_wcolor(35, "=" * 30)
+                        print_wcolor(34, f'YOU TOOK {en_at} DAMEGE. YOUR HP: {int(mob_hp)}')
+                        print_wcolor(34, f'GIVE {mob_at} DAMAGE. ENEMY HP: {int(en_hp)}')
+                        print_wcolor(35, "=" * 30)
 
                     elif action == 2:
                         mob_hp += mob_reg
@@ -95,18 +97,22 @@ class presentation:
                         if en_hp > 100:
                             en_hp = 100
                         os.system('cls')
-                        print(f'Você regenerou {mob_reg} de Hp. Seu Hp: {int(mob_hp)}')
-                        print(f'Seu inimigo regenerou {en_reg} de Hp. Hp inimigo: {int(en_hp)}')
+                        print_wcolor(35, "=" * 50)
+                        print_wcolor(34, f'YOU REGENERATED {mob_reg} HP. YOU HP: {int(mob_hp)}')
+                        print_wcolor(34, f'YOUR ENEMY REGENERATED {en_reg} HP. ENEMY HP: {int(en_hp)}')
+                        print_wcolor(35, "=" * 50)
 
                     else:
                         os.system('cls')
                         print_wcolor(31, 'Option not available! Try again.')
 
                     if en_hp <= 0:
-                        print(f'Você ganhou! Seu Hp: {int(mob_hp)}')
+                        print_wcolor(33, f'YOU WON! YOUR HP: {int(mob_hp)}')
+                        print_wcolor(35, "=" * 50)
                         break
                     elif mob_hp <= 0:
-                        print(f'Você perdeu! Hp inimigo: {int(en_hp)}')
+                        print_wcolor(31, f'YOU LOSE! ENEMY HP: {int(en_hp)}')
+                        print_wcolor(35, "=" * 30)
                         break
                     
             else:
